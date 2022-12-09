@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<!-- saved from url=(0021)http://192.168.8.187/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>1 - Switch</title>
+    <style>
+        legend {
+            color: rgb(10, 1, 1);
+            padding: 5px;
+            border-radius: 5px;
+        }
+        fieldset {
+            max-width: 500px;
+            border-radius: 10px;
+            border-color: #b61e1e;
+        }
+        label {
+            float: left;
+        }
+        .label3 {
+            color: rgb(0, 0, 0);
+            font: serif;
+            height: 40px;
+        }
+        input {
+            max-width: 200px;
+            border-radius: 3px;
+            height: 40px;
+            margin-top: 20px;
+        }
+        label {
+            color: rgb(0, 0, 0);
+        }
+        .text-center {
+            text-align: center;
+        }
+        .form-style-10 {
+            max-width: 520px;
+            padding: 30px;
+            margin: 40px auto;
+            background: rgb(255, 255, 255);
+            border-radius: 10px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+            -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+            -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+        }
+        .form-style-10 .inner-wrap {
+            padding: 30px;
+            background: #F8F8F8;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+        .form-style-10 h1>span {
+            display: block;
+            margin-top: 2px;
+            font: 13px Arial, Helvetica, sans-serif;
+        }
+    </style>
+    <script>
+        function submitMessage() {
+          alert("Data Berhasil Disimpan, Silakan Lakukan Refresh!");
+          setTimeout(function(){ document.location.reload(false); }, 500); 
+        }
+        function logoutButton() { 
+          alert("Anda Berhasil Keluar..!");
+          var xhr = new XMLHttpRequest();
+          xhr.open("GET", "/logout", true);
+          xhr.send();
+          setTimeout(function(){ window.open("/logged-out","_self"); }, 200);
+        }
+        function submitDefault() {
+          alert("Reset Default..!");
+        }
+        function submitRestart() {
+          alert("Restarting...!");   
+          setTimeout(function(){ window.open("/","_self"); }, 500);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="form-style-10">
+     <fieldset align="left">
+        <h1>Config Device <span>Antares Smart Switch V1 - Device [1]</span> <button onclick="logoutButton()">Logout</button> </h1>
+        <div align="left">
+            <a style=" min-width:80px;" href="http://192.168.8.187/restart" onclick="submitRestart()">Restart</a> &nbsp;
+            <a style=" min-width:85px; " href="http://192.168.8.187/reset_default" onclick="submitDefault()">Reset Default </a>  &nbsp; <br><br>
+            <a style=" min-width:85px;" href="http://192.168.8.187/">Refresh</a> &nbsp;
+        </div>
+        </fieldset>
+        <br>
+         <fieldset align="left">
+        <br>
+        <div class="label2">IP : &nbsp; &nbsp; [ &nbsp; 192.168.8.187 &nbsp; ] </div>
+        <div class="label2">RSSI : &nbsp; &nbsp; [ &nbsp; -67 &nbsp; ] </div>
+        <br>
+        </fieldset>
+        <br>
+        <div align="left">
+            <form action="http://192.168.8.187/get" target="hidden-form">
+                <fieldset align="left">
+                    <legend>Status</legend>
+                    <p>
+                        <label>Switch </label>
+                        <br>
+                        </p><h2>  </h2>
+                    <p></p>
+                    <p>
+                        <a style=" min-width:80px;" href="http://192.168.8.187/restart" onclick="submitRestart()">Restart</a> &nbsp;
+                        <a style=" min-width:80px;" href="http://192.168.8.187/">Refresh</a> &nbsp; 
+                    </p>
+                </fieldset>
+            </form>
+            <br>
+            <form action="http://192.168.8.187/get" target="hidden-form">
+                <fieldset align="left">
+                    <legend>WiFi Client</legend>
+                    <p>
+                        <label>SSID : </label>
+                        </p><div class="label2"> &nbsp; &nbsp; [ &nbsp; INDIHOME &nbsp; ] </div>
+                        <input type="text" name="ssid_wifi_client" value="INDIHOME">
+                    <p></p>
+                    <p>
+                        <label>Password</label>
+                        </p><div class="label2 "> &nbsp; &nbsp; [ &nbsp; corpu2023 &nbsp; ] </div>
+                        <input type="text" name="pass_wifi_client" value="corpu2023">
+                    <p></p>
+                    <p>
+                        <label>Jenis IP (Statis / Dinamis) : </label></p><div class="label2 "> &nbsp; &nbsp; [ &nbsp;  &nbsp; ] </div> <br>
+                        <p>  
+                             <select name="ip_type" style=" min-width:175px; max-width: 200px; border-radius: 3px; height: 40px; margin-top: 10px;">
+                             <option value="Statis">Statis</option>
+                             <option value="Dinamis">Dinamis</option>
+                             </select>
+                       </p>
+                    <p></p>
+                    <br>
+                    <br>   
+                        <fieldset align="left ">
+                        <legend>Config IP Statis</legend>
+                    <p>
+                        <label>IP Address</label>
+                        </p><div class="label2 "> &nbsp; &nbsp; [ &nbsp; 0.0.0.0 &nbsp; ] </div>
+                        <input type="text" name="ip_address" value="0.0.0.0">
+                    <p></p>
+                    <p>
+                        <label>Subnet Mask</label>
+                        </p><div class="label2 "> &nbsp; &nbsp; [ &nbsp; 0.0.0.0 &nbsp; ] </div>
+                        <input placeholder="255.255.255.0 " type="text" name="ip_subnet" value="0.0.0.0">
+                    <p></p>
+                    <p>
+                        <label>Gateway</label>
+                        </p><div class="label2 "> &nbsp; &nbsp; [ &nbsp;  &nbsp; ] </div>
+                        <input type="text" name="ip_gateway" value="">
+                    <p></p>
+                    <p>
+                        <label>DNS</label>
+                        </p><div class="label2 "> &nbsp; &nbsp; [ &nbsp; 0.0.0.0 &nbsp; ] </div>
+                        <input type="text" name="ip_dns" value="0.0.0.0">
+                    <p></p> 
+                </fieldset>
+                 <br>
+                 <button type="submit " onclick="submitMessage()">Simpan</button>
+                 <br>
+                </fieldset>
+            </form>
+            <br>
+            <form action="http://192.168.8.187/get" target="hidden-form">
+                <fieldset align="left ">
+                    <legend>WiFi AP</legend>
+                    <p>
+                        <label>SSID : </label>
+                        </p><div class="label2 "> &nbsp; &nbsp; [ &nbsp; Switch &nbsp; ] </div>
+                        <input type="text" name="ssid_wifi_ap" value="Switch">
+                    <p></p>
+                    <p>
+                        <label>Password</label>
+                        </p><div class="label2 "> &nbsp; &nbsp; [ &nbsp; 12345678 &nbsp; ] </div>
+                        <input type="text" name="pass_wifi_ap" value="12345678">
+                    <p></p>
+                    <button type="submit " onclick="submitMessage()">Simpan</button>
+                </fieldset>
+            </form>
+            <br>
+            <form action="http://192.168.8.187/get" target="hidden-form">
+                <fieldset align="left ">
+                    <legend>Key Parameter</legend>
+                    <p>
+                        <label>Switch : </label>
+                        </p><div class="label2 "> &nbsp; &nbsp; [ &nbsp;  &nbsp; ] </div>
+                        <input type="text" name="val_switch" value="">
+                    <p></p>
+      
+                    <button type="submit " onclick="submitMessage()">Simpan</button>
+                </fieldset>
+            </form>
+            <br>
+            
+            <form action="http://192.168.8.187/get" target="hidden-form">
+                <fieldset align="left ">
+                    <legend>Login Auth</legend>
+                    <p>
+                        <label>Username : </label>
+                        </p><div class="label2 "> &nbsp; &nbsp; [ &nbsp; admin &nbsp; ] </div>
+                        <input type="text" name="http_username" value="admin">
+                    <p></p>
+                    <p>
+                        <label>Password : </label>
+                        </p><div class="label2 "> &nbsp; &nbsp; [ &nbsp; admin &nbsp; ] </div>
+                        <input type="text" name="http_password" value="admin">
+                    <p></p>
+                   <button type="submit " onclick="submitMessage()">Simpan</button>
+                </fieldset>
+            </form>
+            <br>
+            <form action="http://192.168.8.187/get" target="hidden-form">
+                <fieldset align="left ">
+                        <legend>Config Antares</legend>
+                          <p>
+                              <label>Antares.id AccessKey : </label>
+                              </p><div class="label2 "> &nbsp; &nbsp; [ &nbsp; 8b175a2ca85aa24e:11e5aae47db9ef5d &nbsp; ] </div>
+                              <input type="text" name="antaresaccesskey" value="8b175a2ca85aa24e:11e5aae47db9ef5d">
+                          <p></p>
+                          <p>
+                              <label>Antares.id Application Name : </label>
+                              </p><div class="label2 "> &nbsp; &nbsp; [ &nbsp;  &nbsp; ] </div>
+                              <input type="number" name="antaresapp" value="">
+                          <p></p>
+                          <p>
+                              <label>Antares.id Device Name : </label>
+                              </p><div class="label2 "> &nbsp; &nbsp; [ &nbsp; testing &nbsp; ] </div>
+                              <input type="text" name="antaresdevice" value="testing">
+                          <p></p>
+                          <p>
+                              <label>Key Publish : </label>
+                              </p><div class="label2 "> &nbsp; &nbsp; [ &nbsp; SmartSwitch1 &nbsp; ] </div>
+                              <input type="text" name="key_publish_custom" value="SmartSwitch1">
+                          <p></p>
+                          <p>
+                              <label>Key Subscribe : </label>
+                              </p><div class="label2 "> &nbsp; &nbsp; [ &nbsp;  &nbsp; ] </div>
+                              <input type="text" name="key_subscribe_custom" value="">
+                          <p></p>
+                          <p>
+                                <label>Interval Publish (Detik) : </label>
+                                </p><div class="label2 "> &nbsp; &nbsp; [ &nbsp; 2 &nbsp; ] </div>
+                                <input type="number" name="interval_publish" value="2">
+                          <p></p>
+                    <br>
+                    <button type="submit" onclick="submitMessage()">Simpan</button>
+                    <br>
+                </fieldset>
+            </form>
+            <br>
+        </div>
+    </div>
+
+<footer>
+    <div class="footer ">
+    <p class="text-center ">Copyright © 2022</p>
+    </div>
+</footer>
+
+</body></html>
